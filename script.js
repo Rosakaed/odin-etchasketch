@@ -6,6 +6,7 @@ const resetButton = document.querySelector('#reset-button');
 const eraserButton = document.querySelector('#Eraser-Draw');
 const changeInput = document.getElementById('changeInput');
 const error = document.getElementById('Error');
+const saveButton = document.getElementById('save');
 let isMouseDown = false;
 let eraser = false;
 let color = false;
@@ -65,6 +66,8 @@ function fillGrid(dim) {
         box.style.height = `${widths}px`;
         box.style.width = `${widths}px`;
         box.clicked = false;
+        box.classList.add("cell");
+        box.style.backgroundColor="#efefef"
         box.addEventListener('mouseover', () => {
             if (eraser && isMouseDown) {
                 box.clicked = false
@@ -87,7 +90,7 @@ function fillGrid(dim) {
         box.addEventListener('mousedown', () => {
             if (eraser) {
                 box.clicked = false
-                box.style.backgroundColor = "";
+                box.style.backgroundColor = "#efefef";
                 return;
             }
 
@@ -95,7 +98,7 @@ function fillGrid(dim) {
         })
         box.addEventListener('mouseout', () => {
             if (box.clicked === false) {
-                box.style.backgroundColor = "";
+                box.style.backgroundColor = "#efefef";
             }
         })
 
@@ -110,9 +113,6 @@ function emptyGrid() {
     }
 
 }
-
-
-fillGrid(size);
 
 changeButton.addEventListener("click", () => {
     val = changeInput.value;
@@ -139,3 +139,32 @@ resetButton.addEventListener("click", () => {
     emptyGrid();
     fillGrid(size);
 })
+
+saveButton.addEventListener("click", () => {
+    const canvas = document.createElement('canvas');
+    canvas.width = 768;
+    canvas.height = 768;
+
+    const ctx = canvas.getContext('2d');
+    const eleList = document.getElementsByClassName("cell");
+    const grid = Array.from(eleList);
+    const cellSize = 768 / size;
+   
+    grid.forEach((cell, index) => {
+         console.log(index);
+        const x = (index%size) * cellSize;
+        const y = Math.floor((index/size))  * cellSize;
+        ctx.fillStyle = window.getComputedStyle(cell).backgroundColor;
+        ctx.fillRect(x, y, cellSize, cellSize);
+    })
+
+    const dataURL = canvas.toDataURL('image/png');
+    const link = document.createElement('a');
+    link.href = dataURL;
+    link.download = 'sketch.png';
+    link.click();
+
+})
+
+
+fillGrid(size);
