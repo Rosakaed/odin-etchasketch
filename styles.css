@@ -1,0 +1,103 @@
+body{
+    margin: 0px;
+    background-color:#efefef;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+}
+.Header{
+    background-color: #efefef;
+    padding: 30px 20px;
+    text-align: center;
+    box-shadow: -6px -6px 14px rgba(255, 255, 255, .7),
+    -6px -6px 10px rgba(255, 255, 255, .5),
+    6px 6px 8px rgba(255, 255, 255, .075),
+    6px 6px 10px rgba(0, 0, 0, .15);
+
+}
+
+.Title{
+    font-size: 45px;
+    font-family: 'poppins','Brush Script MT';;
+    font-weight: bold;
+    color:black;
+    margin:0px;
+}
+
+
+.grid-sel
+{
+    display: flex;
+    justify-content: space-around;
+}
+.first{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:24px;
+}
+.grid-sel  p{
+    font-family: 'poppins','Brush Script MT';
+    font-weight: bold;
+    color:black;
+    font-size: 40px;
+    margin: 0px;
+    margin-right: 10px;
+}
+.grid-sel input{
+    box-shadow: -6px -6px 14px rgba(255, 255, 255, .075),
+    -6px -6px 10px rgba(255, 255, 255, .075),
+    6px 6px 8px rgba(255, 255, 255, .075),
+    6px 6px 10px rgba(0, 0, 0, .15);
+    background-color:white ;
+    border-radius: 20px;
+    border: 1px;
+    padding: 5px 5px;
+    height: 80px;
+    width: 300px;
+    font-size: 40px;
+    font-family: 'poppins';
+}
+.grid-buttons{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 15px;
+    
+}
+button{
+    padding:28px 100px;
+    background-color: rgb(255, 255, 255);
+    border:none;
+    border-radius: 25px;
+   
+    color:black;
+    box-shadow: -6px -6px 14px rgba(255, 255, 255, .075),
+              -6px -6px 10px rgba(255, 255, 255, .075),
+              6px 6px 8px rgba(255, 255, 255, .075),
+              6px 6px 10px rgba(0, 0, 0, .15);
+    width: 300px;
+    height: auto;
+    font-size: 30px;
+    font-weight: bold;
+    font-family:'poppins','Brush Script MT' ;
+}
+#change-button
+{
+    width: 400px;
+}
+.grid-container{
+    border:5px solid black;
+    height: 768px;
+    width: 768px;
+    flex-shrink: 0;
+    align-self: center;
+    display: flex;
+    flex-wrap: wrap;
+}
+#Error
+{
+    font-size: 20px;
+}
